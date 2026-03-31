@@ -1,35 +1,34 @@
-import { X, Calendar } from 'lucide-react'
-import { useEffect } from 'react'
-import type { Post } from '../types'
+import { X, Calendar } from "lucide-react";
+import { useEffect } from "react";
+import type { Post } from "../types";
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
+const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
 
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('es-CL', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  })
+  return new Date(iso).toLocaleDateString("es-CL", {
+    day: "numeric", month: "long", year: "numeric",
+  });
 }
 
 interface Props {
-  post: Post
-  onClose: () => void
+  post: Post;
+  onClose: () => void;
 }
 
 export default function PostModal({ post, onClose }: Props) {
   const imgSrc = post.image
-    ? post.image.startsWith('http') ? post.image : `${BASE_URL}${post.image}`
-    : null
+    ? post.image.startsWith("http") ? post.image : `${BASE_URL}${post.image}`
+    : null;
 
-  // Cerrar con Escape
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
-    document.addEventListener('keydown', handler)
-    document.body.style.overflow = 'hidden'
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
     return () => {
-      document.removeEventListener('keydown', handler)
-      document.body.style.overflow = ''
-    }
-  }, [onClose])
+      document.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
 
   return (
     <div
@@ -42,34 +41,40 @@ export default function PostModal({ post, onClose }: Props) {
       >
         {/* Imagen */}
         {imgSrc && (
-          <div className="h-64 overflow-hidden">
+          <div className="h-72 overflow-hidden">
             <img src={imgSrc} alt={post.title} className="w-full h-full object-cover" />
+            {/* Degradado sobre imagen */}
+            <div className="absolute top-0 left-0 right-0 h-72 bg-gradient-to-b from-black/20 to-transparent pointer-events-none" />
           </div>
         )}
 
         {/* Botón cerrar */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-white transition-colors text-brand-navy"
+          className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm
+                     flex items-center justify-center shadow-lg hover:bg-white
+                     transition-colors text-brand-navy z-10"
         >
           <X size={18} />
         </button>
 
         {/* Contenido */}
         <div className="p-8">
-          <div className="flex items-center gap-2 text-brand-navy/40 text-xs mb-4">
+          <div className="flex items-center gap-2 text-brand-navy/40 text-xs mb-3">
             <Calendar size={12} />
             <span className="font-body">{formatDate(post.created_at)}</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-brand-navy leading-tight mb-6">
+
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-brand-navy leading-tight mb-4">
             {post.title}
           </h2>
           <div className="w-12 h-[2px] bg-brand-gold mb-6" />
-          <p className="font-body text-brand-navy/70 leading-relaxed whitespace-pre-line">
+
+          <p className="font-body text-brand-navy/70 leading-relaxed whitespace-pre-line text-sm">
             {post.content}
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }

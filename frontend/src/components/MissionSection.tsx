@@ -1,56 +1,66 @@
-import { Utensils, Heart, BookOpen, Users } from 'lucide-react'
+import { Utensils, Heart, BookOpen, Users } from "lucide-react";
 
 const PILLARS = [
   {
     icon: Utensils,
-    title: 'Alimento',
-    description: 'Cada semana llevamos comida caliente a los que duermen en las calles.',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80',
-    imageAlt: 'Voluntarios repartiendo comida',
+    title: "Alimento",
+    description:
+      "Cada semana llevamos comida caliente a los que duermen en las calles.",
+    image:
+      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&q=80",
+    imageAlt: "Voluntarios repartiendo comida",
   },
   {
     icon: Heart,
-    title: 'Amor',
-    description: 'Nos sentamos con ellos, los escuchamos y les mostramos que no están solos.',
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80',
-    imageAlt: 'Persona extendiendo la mano',
+    title: "Amor",
+    description:
+      "Nos sentamos con ellos, los escuchamos y les mostramos que no están solos.",
+    image:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80",
+    imageAlt: "Persona extendiendo la mano",
   },
   {
     icon: BookOpen,
-    title: 'Esperanza',
-    description: 'Compartimos el mensaje de Cristo que transforma y restaura vidas.',
-    image: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80',
-    imageAlt: 'Biblia abierta con luz',
+    title: "Esperanza",
+    description:
+      "Compartimos el mensaje de Cristo que transforma y restaura vidas.",
+    image:
+      "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=600&q=80",
+    imageAlt: "Biblia abierta con luz",
   },
   {
     icon: Users,
-    title: 'Comunidad',
-    description: 'Conectamos a personas vulnerables con redes de apoyo y rehabilitación.',
-    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80',
-    imageAlt: 'Grupo de personas unidas',
+    title: "Comunidad",
+    description:
+      "Conectamos a personas vulnerables con redes de apoyo y rehabilitación.",
+    image:
+      "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80",
+    imageAlt: "Grupo de personas unidas",
   },
-]
+];
 
 export default function MissionSection() {
   return (
     <section id="mision" className="py-24 bg-brand-cream">
       <div className="mx-auto max-w-6xl px-6">
-
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="section-badge"><span>✝</span> Nuestra Misión</span>
+          <span className="section-badge">
+            <span>✝</span> Nuestra Misión
+          </span>
           <h2 className="mt-5 font-display text-4xl sm:text-5xl font-bold text-brand-navy leading-tight">
             Ir donde nadie quiere ir
           </h2>
           <p className="mt-4 mx-auto max-w-2xl font-body text-brand-navy/60 text-lg leading-relaxed">
-            Creemos que cada persona en situación de calle tiene un valor infinito ante los ojos de Dios. Por eso salimos a buscarlos.
+            Creemos que cada persona en situación de calle tiene un valor
+            infinito ante los ojos de Dios. Por eso salimos a buscarlos.
           </p>
         </div>
 
         {/* Cards con imagen */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PILLARS.map((pillar, i) => {
-            const Icon = pillar.icon
+            const Icon = pillar.icon;
             return (
               <div
                 key={i}
@@ -84,71 +94,34 @@ export default function MissionSection() {
                 {/* Línea dorada hover */}
                 <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-gold/0 via-brand-gold to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-            )
+            );
           })}
         </div>
 
         {/* Cita bíblica — estilo manuscrito/pergamino */}
-        <div className="mt-20 mx-auto max-w-3xl">
-          <div className="relative">
-            {/* Fondo tipo pergamino */}
-            <div
-              className="relative rounded-2xl overflow-hidden px-10 py-12 text-center"
-              style={{
-                background: 'linear-gradient(135deg, #1a0e00 0%, #2d1a00 40%, #1a0e00 100%)',
-                boxShadow: '0 0 0 1px rgba(232,160,32,0.2), 0 25px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(232,160,32,0.15)',
-              }}
-            >
-              {/* Textura de pergamino simulada con bordes */}
-              <div className="absolute inset-3 rounded-xl border border-brand-gold/20 pointer-events-none" />
-              <div className="absolute inset-5 rounded-lg border border-brand-gold/10 pointer-events-none" />
+        <div className="mt-20 mx-auto max-w-3xl px-6">
+          <div className="relative rounded-2xl px-8 py-12 text-center bg-gradient-to-br from-[#1a0e00] to-[#2a1800] shadow-2xl">
+            {/* Línea superior sutil */}
+            <div className="w-16 h-[2px] bg-brand-gold mx-auto mb-6 rounded-full opacity-70" />
 
-              {/* Ornamento superior */}
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-brand-gold/50" />
-                <span className="text-brand-gold text-xl">✦</span>
-                <span className="text-brand-gold/60 text-sm">✝</span>
-                <span className="text-brand-gold text-xl">✦</span>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-brand-gold/50" />
-              </div>
+            {/* Cita */}
+            <p className="font-display italic text-amber-100 text-lg sm:text-xl lg:text-2xl leading-relaxed">
+              “Entonces el Rey dirá a los de su derecha:
+              <span className="text-brand-gold font-semibold"> venid...</span>
+              porque tuve hambre y me disteis de comer; fui forastero y me
+              recogisteis.”
+            </p>
 
-              {/* Comillas decorativas */}
-              <div
-                className="absolute top-8 left-8 font-display text-8xl leading-none select-none"
-                style={{ color: 'rgba(232,160,32,0.12)', fontStyle: 'italic' }}
-              >
-                "
-              </div>
-              <div
-                className="absolute bottom-16 right-8 font-display text-8xl leading-none select-none rotate-180"
-                style={{ color: 'rgba(232,160,32,0.12)', fontStyle: 'italic' }}
-              >
-                "
-              </div>
+            {/* Referencia */}
+            <p className="mt-6 text-sm tracking-widest text-brand-gold/70 uppercase">
+              Mateo 25:34–35
+            </p>
 
-              {/* Texto de la cita */}
-              <p className="relative font-display italic text-amber-100/90 text-lg sm:text-xl lg:text-2xl leading-relaxed tracking-wide">
-                Entonces el Rey dirá a los de su derecha:{' '}
-                <em className="text-brand-gold not-italic font-bold">venid...</em>{' '}
-                porque tuve hambre y me disteis de comer; fui forastero y me recogisteis.
-              </p>
-
-              {/* Ornamento inferior */}
-              <div className="flex items-center justify-center gap-3 mt-7 mb-1">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-brand-gold/40" />
-                <span className="text-brand-gold/80 text-xs tracking-[0.35em] uppercase font-accent">
-                  Mateo 25 : 34–35
-                </span>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-brand-gold/40" />
-              </div>
-            </div>
-
-            {/* Sombra/brillo exterior */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-brand-gold/10 via-transparent to-brand-gold/5 blur-xl -z-10" />
+            {/* Línea inferior */}
+            <div className="w-16 h-[2px] bg-brand-gold mx-auto mt-6 rounded-full opacity-70" />
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }

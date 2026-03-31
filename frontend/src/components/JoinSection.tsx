@@ -9,23 +9,38 @@ const FB_PAGE_URL =
 
 export default function JoinSection() {
   return (
-    <section
-      id="unete"
-      className="py-24 bg-brand-navy relative overflow-hidden"
-    >
-      {/* Destellos de fondo */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-brand-gold/5 blur-3xl" />
-      <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-brand-gold/5 blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/10 blur-3xl pointer-events-none" />
+    <section id="unete" className="relative overflow-hidden py-28">
+      {/* Fondo con gradiente dramático — ya no es flat navy */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-brand-navy to-[#1a2f55]" />
+
+      {/* Textura de puntos suave */}
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, #E8A020 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+
+      {/* Arco dorado decorativo superior */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] rounded-b-full bg-brand-gold/5 blur-3xl pointer-events-none" />
+
+      {/* Brillo lateral izquierdo */}
+      <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-brand-gold/8 blur-[80px] pointer-events-none" />
+      <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-blue-500/8 blur-[80px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-3xl px-6 text-center">
-        {/* Logo */}
-        <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl ">
-          <img
-            src="/image/logo.png"
-            alt="Logo"
-            className="w-full h-full object-cover"
-          />
+        {/* Logo con halo */}
+        <div className="relative w-40 h-40 mx-auto mb-8">
+          <div className="absolute inset-0 rounded-full bg-brand-gold/20 blur-2xl scale-110 animate-pulse" />
+          <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl ring-2 ring-brand-gold/30">
+            <img
+              src="/image/logo.png"
+              alt="Logo"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
 
         <span className="section-badge">
@@ -35,7 +50,9 @@ export default function JoinSection() {
         <h2 className="mt-5 font-display text-4xl sm:text-5xl font-bold text-white leading-tight">
           ¿Sientes el llamado
           <br />
-          <span className="text-brand-gold">a servir?</span>
+          <span className="text-brand-gold drop-shadow-[0_0_20px_rgba(232,160,32,0.4)]">
+            a servir?
+          </span>
         </h2>
 
         <p className="mt-5 font-body text-white/60 text-lg leading-relaxed">
@@ -46,18 +63,17 @@ export default function JoinSection() {
 
         {/* Divisor ornamental */}
         <div className="flex items-center justify-center gap-3 mt-10 mb-8">
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-brand-gold/40" />
-          <span className="text-brand-gold/50 text-sm">✦</span>
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-brand-gold/50" />
+          <span className="text-brand-gold/60 text-sm">✦</span>
           <span className="font-body text-white/30 text-xs tracking-[0.25em] uppercase">
             Contáctanos
           </span>
-          <span className="text-brand-gold/50 text-sm">✦</span>
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-brand-gold/40" />
+          <span className="text-brand-gold/60 text-sm">✦</span>
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-brand-gold/50" />
         </div>
 
         {/* Botones */}
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          {/* WhatsApp — estilo dorado primario */}
           <a
             href={`https://wa.me/${WSP_NUMBER}?text=${WSP_MESSAGE}`}
             target="_blank"
@@ -65,7 +81,8 @@ export default function JoinSection() {
             className="group inline-flex items-center justify-center gap-3 rounded-full
                        px-8 py-4 bg-brand-gold hover:bg-amber-500 active:scale-95
                        font-body text-sm font-semibold tracking-widest uppercase text-white
-                       shadow-lg shadow-brand-gold/25 transition-all duration-300 hover:scale-105"
+                       shadow-lg shadow-brand-gold/30 transition-all duration-300 hover:scale-105
+                       hover:shadow-brand-gold/50"
           >
             <svg
               viewBox="0 0 24 24"
@@ -77,14 +94,13 @@ export default function JoinSection() {
             Escribir por WhatsApp
           </a>
 
-          {/* Facebook — estilo outline con blanco */}
           <a
             href={FB_PAGE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-3 rounded-full
-                       px-8 py-4 border-2 border-white/20 hover:border-white/50
-                       bg-white/5 hover:bg-white/10 active:scale-95
+                       px-8 py-4 border-2 border-white/20 hover:border-brand-gold/60
+                       bg-white/5 hover:bg-brand-gold/10 active:scale-95
                        font-body text-sm font-semibold tracking-widest uppercase text-white/80 hover:text-white
                        transition-all duration-300 hover:scale-105 backdrop-blur-sm"
           >
@@ -103,10 +119,23 @@ export default function JoinSection() {
           </a>
         </div>
 
-        {/* Nota al pie */}
         <p className="mt-7 font-body text-white/25 text-xs tracking-wide">
           También puedes escribirnos directamente por mensaje en Facebook
         </p>
+      </div>
+
+      {/* Ola que separa del footer */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <svg
+          viewBox="0 0 1440 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 30 C480 60 960 0 1440 30 L1440 60 L0 60 Z"
+            fill="#050d1a"
+          />
+        </svg>
       </div>
     </section>
   );
