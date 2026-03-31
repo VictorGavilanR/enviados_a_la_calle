@@ -122,6 +122,10 @@ STATIC_URL = "static/"
 
 # CORS
 CORS_ALLOW_ALL_ORIGINS = True
-
+ALLOWED_HOSTS = [
+    '.vercel.app', 
+    'localhost', 
+    '127.0.0.1'
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
